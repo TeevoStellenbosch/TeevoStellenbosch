@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeeVo Club - Stellenbosch | God's Word for Teens & Young Adults</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6A5ACD;
+            --secondary: #4B0082;
+            --accent: #FFD700;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --text: #333333;
+            --success: #28a745;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--light);
+            padding-top: 80px;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(106, 90, 205, 0.8), rgba(75, 0, 130, 0.8)), url('https://christembassy.org/wp-content/uploads/2020/04/158689520757_pix30.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--dark);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--accent);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            margin-left: 1rem;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+        }
+        
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .section-description {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            height: 350px;
+            background: linear-gradient(rgba(106, 90, 205, 0.7), rgba(75, 0, 130, 0.7)), url('https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* What to Expect */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .feature-icon {
+            margin-right: 10px;
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+        
+        /* Meeting Info */
+        .meeting-info {
+            background: linear-gradient(rgba(106, 90, 205, 0.9), rgba(75, 0, 130, 0.9)), url('https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .meeting-info h2 {
+            color: white;
+        }
+        
+        .details-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .meeting-time {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .time-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1.5rem;
+            border-radius: 10px;
+            min-width: 250px;
+        }
+        
+        .time-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: #f9f9f9;
+        }
+        
+        .testimonial-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: """;
+            font-size: 5rem;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Map */
+        .map-container {
+            margin-top: 2rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 20px;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                display: block;
+                margin: 1rem auto;
+                width: 80%;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .meeting-time {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">TeeVo<span>Club</span></div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#what-to-expect">What to Expect</a></li>
+                    <li><a href="#meetings">Meetings</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>God's Word Made Practical for Teens & Young Adults</h1>
+            <p>Join TeeVo Club in Stellenbosch where we explore the Bible together and grow into who God planned for us to be.</p>
+            <a href="#meetings" class="btn">Join Our Next Meeting</a>
+            <a href="#about" class="btn btn-outline">Learn More</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About TeeVo Club</h2>
+            <p class="section-description">TeeVo Club is a community where teenagers and young adults in Stellenbosch come together to explore God's Word in a practical and relatable way.</p>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>God's Word Made Practical</h3>
+                    <p>The group's name comes from the TeeVo devotional - which stands for "Teen Version" of God's Word. Everything we discuss comes straight from the Bible, helping you understand what Jesus came to do and the life God has made available for you.</p>
+                    <p>In a world full of confusion and pressure, TeeVo Club provides a safe space to ask questions, build meaningful friendships, and discover your purpose through God's Word.</p>
+                    <p>Whether you're new to faith or have been following Jesus for years, you'll find a welcoming community that will support and challenge you to grow spiritually.</p>
+                </div>
+                <div class="about-image">
+                    <div style="text-align: center; background: rgba(0,0,0,0.5); padding: 2rem; border-radius: 10px;">
+                        <i class="fas fa-bible" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                        <p>Growing together in faith</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What to Expect -->
+    <section id="what-to-expect" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2>What To Expect</h2>
+            <p class="section-description">At TeeVo Club, we've created an environment designed specifically for teenagers and young adults to engage with God's Word.</p>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <h3><i class="fas fa-book feature-icon"></i> Biblical Teaching</h3>
+                    <p>Our discussions are based entirely on Scripture, making God's Word practical and applicable to your daily life as a young person.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3><i class="fas fa-users feature-icon"></i> Authentic Community</h3>
+                    <p>Connect with other teens and young adults who are navigating similar challenges and seeking to grow in their faith.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3><i class="fas fa-comments feature-icon"></i> Relevant Discussions</h3>
+                    <p>We address real issues you face - relationships, identity, purpose, stress, and more - from a biblical perspective.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3><i class="fas fa-shield-alt feature-icon"></i> Safe Environment</h3>
+                    <p>Ask questions, share thoughts, and express doubts in a judgment-free space where everyone is respected.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3><i class="fas fa-hands-helping feature-icon"></i> Practical Application</h3>
+                    <p>We don't just learn information - we focus on how to live out biblical principles in school, relationships, and everyday decisions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3><i class="fas fa-laugh feature-icon"></i> Fun & Connection</h3>
+                    <p>While we take God's Word seriously, we also enjoy hanging out, having fun, and building genuine friendships.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meeting Information -->
+    <section id="meetings" class="meeting-info">
+        <div class="container">
+            <h2>Join Us This Week</h2>
+            <p class="section-description">We meet regularly to study God's Word together and build community.</p>
+            
+            <div class="details-box">
+                <div class="meeting-time">
+                    <div class="time-card">
+                        <h3><i class="fas fa-calendar-day"></i> Mondays</h3>
+                        <p><strong>Time:</strong> 2:15 PM</p>
+                        <p><strong>Location:</strong> Nelssei above SRC offices</p>
+                    </div>
+                    
+                    <div class="time-card">
+                        <h3><i class="fas fa-calendar-day"></i> Fridays</h3>
+                        <p><strong>Time:</strong> 1:15 PM</p>
+                        <p><strong>Location:</strong> Nelssei above SRC offices</p>
+                    </div>
+                </div>
+                
+                <p><strong>Who:</strong> Teens & Young Adults (13-25)</p>
+                <p><strong>What to bring:</strong> Just yourself - we'll provide the TeeVo devotionals!</p>
+                
+                <a href="#contact" class="btn">Get in Touch</a>
+            </div>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.843344963895!2d18.859215315214!3d-33.93467398064229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcdb2c5a2c5c5c5%3A0x5d1c5a2c5a2c5a2c!2sStellenbosch%20University%2C%20Stellenbosch%2C%20South%20Africa!5e0!3m2!1sen!2sus!4v1651234567890!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>What Members Say</h2>
+            <p class="section-description">Hear from other young people who have found community and growth through TeeVo Club.</p>
+            
+            <div class="testimonial-cards">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"TeeVo Club helped me understand the Bible in a way that actually makes sense for my life. I've grown so much in my faith since joining!"</p>
+                    <p class="testimonial-author">- Sethu, </p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I was nervous about joining at first, but everyone was so welcoming. Now it's the highlight of my week - I've found real friends here."</p>
+                    <p class="testimonial-author">- Kyle, 19</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The discussions are always relevant to what we're going through as youth. I leave every meeting with practical ways to live out my faith."</p>
+                    <p class="testimonial-author">- Jae, </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p class="section-description">Have questions or want to know more? Reach out to us - we'd love to connect with you!</p>
+            
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="Enter your name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="What would you like to know?" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TeeVo Club Stellenbosch</h3>
+                    <p>God's Word made practical and relatable for teenagers & young adults.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Nelssei above SRC offices, Stellenbosch</p>
+                    <p><i class="fas fa-clock"></i> Mondays 2:15 PM & Fridays 1:15 PM</p>
+                    <p><i class="fas fa-envelope"></i> info@teevoclub.co.za</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 TeeVo Club Stellenbosch. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('mainNav').classList.remove('active');
+                }
+            });
+        });
+        
+        // Simple form validation
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            if (name && email && message) {
+                alert('Thanks for your message! We\'ll get back to you soon.');
+                this.reset();
+            }
+        });
+    </script>
+</body>
+</html>
