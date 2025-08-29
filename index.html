@@ -136,16 +136,26 @@
             margin: 0 auto 2rem;
         }
         
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
         .btn {
             display: inline-block;
             background-color: var(--accent);
             color: var(--dark);
-            padding: 0.8rem 1.5rem;
+            padding: 0.8rem 1.8rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
             border: 2px solid var(--accent);
+            text-align: center;
+            min-width: 180px;
         }
         
         .btn:hover {
@@ -159,7 +169,6 @@
             background-color: transparent;
             color: white;
             border: 2px solid white;
-            margin-left: 1rem;
         }
         
         .btn-outline:hover {
@@ -539,14 +548,15 @@
                 font-size: 1rem;
             }
             
-            .btn {
-                display: block;
-                margin: 1rem auto;
-                width: 80%;
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
             }
             
-            .btn-outline {
-                margin-left: 0;
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                margin: 0.5rem 0;
             }
             
             section {
@@ -586,6 +596,12 @@
             .mobile-nav {
                 width: 85%;
                 padding: 4rem 1.5rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 1.5rem;
+                min-width: auto;
+                width: 100%;
             }
         }
     </style>
@@ -632,8 +648,10 @@
         <div class="container">
             <h1>God's Word Made Practical for Teens & Young Adults</h1>
             <p>Join TeeVo Club in Stellenbosch where we explore the Bible together and grow into who God planned for us to be.</p>
-            <a href="#meetings" class="btn">Join Our Next Meeting</a>
-            <a href="#about" class="btn btn-outline">Learn More</a>
+            <div class="hero-buttons">
+                <a href="#meetings" class="btn">Join Our Next Meeting</a>
+                <a href="#about" class="btn btn-outline">Learn More</a>
+            </div>
         </div>
     </section>
 
